@@ -9,7 +9,7 @@ that you are using Java 8 and in setting your environment variables appropraitel
 ## Usage
 ### One Liner Method
 
-If you are willing to run this exactly as written, you can invoke it as a single line command and avoid downloading it first:
+If you are willing to run this exactly as written, you can download and invoke it with a single command:
 
 ```
  bash <(curl -s https://raw.githubusercontent.com/jasonnet/mvninstall/master/install_maven.sh )
@@ -47,11 +47,11 @@ It has been tested on CentOS and should also work on Ubuntu and Mac/OS as well.
 ## Support
 
 We will make a reasonable effort to update this package as necessary.  If you find a bug or have a suggestion, please file
-and Issue report at (https://github.com/jasonnet/mvninstall/issues).
+an Issue at (https://github.com/jasonnet/mvninstall/issues).
 
 ## License
 
-The code at (https://github.com/jasonnet/mvninstall) is original work of the contributors there.  It has not been copied from
+The code at (https://github.com/jasonnet/mvninstall) is an original work of the contributors there.  It has not been copied from
 other projects.
 
 It is our intent to let one use or modify this script however one likes.  You do not need to credit us.  See the LICENSE.txt file
