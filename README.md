@@ -32,6 +32,7 @@ command line with an argument specifying the version. For example:
 
 ```
 wget https://raw.githubusercontent.com/jasonnet/mvninstall/master/install_maven.sh
+chmod install_maven.sh
 ./install_maven.sh 3.4.0
 ```
 
@@ -42,7 +43,10 @@ This script uses bash.
 It requires that wget or curl be installed and in the path. If it finds they are not installed, it asks you to download 
 the Maven tar.gz files manually.
 
-It has been tested on CentOS and should also work on Ubuntu and Mac/OS as well.  
+It has been tested on CentOS and should also work on Ubuntu and Mac/OS as well.
+
+You do not need to update your .bashrc or .bash_profile.  This script will provide you with a sample source file
+that sets environment variables appropriately.
 
 ## Support
 

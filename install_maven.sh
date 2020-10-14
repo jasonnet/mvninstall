@@ -128,6 +128,10 @@ if [ "${JAVA_HOME}F" = "F" ] ; then
 	echo " You need to set JAVA_HOME.  You will need to determine the directory that contains the"
 	echo " java that you are using.  You should start your search at $JAVAPATH"
     fi
+    echo " Note: You do not need to set this in your .bashrc or .bash_profile file because"
+    echo " this script will provide you with a source file that you can use instead,"
+    echo " which should allow you to maintain more than one instance of maven."
+    echo " "
     echo " Once you you have done this, invoke this script again."
     echo ""
     exit 9
