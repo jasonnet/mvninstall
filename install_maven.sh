@@ -14,14 +14,14 @@ if [[ -n $1 ]] ; then
     HAYSTACKLEN=`expr length $1`
     #echo lengths are $MATCHLEN  $HAYSTACKLEN
     if [ "$MATCHLEN" = "$HAYSTACKLEN" ] ; then
-	MVNVERSION=$1
+        MVNVERSION=$1
     else
-	echo " Error: the parameter must be a version number of the form n.n.n. For example:"
-	echo "    3.43.2  "
-	echo " Please try again with a version number of the right format or pass no parameter"
-	echo " at all to install version $MVNVERSION."
-	echo ""
-	exit 15
+        echo " Error: the parameter must be a version number of the form n.n.n. For example:"
+        echo "    3.43.2  "
+        echo " Please try again with a version number of the right format or pass no parameter"
+        echo " at all to install version $MVNVERSION."
+        echo ""
+        exit 15
     fi
 else
     MVNVERSION=$DEFAULTMVNVERSION
@@ -53,40 +53,40 @@ else
     URL2=http://www.trieuvan.com/apache/maven/maven-3/${MVNVERSION}/binaries/${FN2}
     WGETPATH=`which wget`
     if [ "$?" = "0" ] ; then
-	# wget is installed
-	wget $URL2 2>/dev/null
-	if [ "$?" = "0" ] ; then
-	    echo " Successful download of $FN2"
-	else
-	    echo " The download of "
-	    echo "   $URL2"
-	    echo " failed.  Please download it yourself from https://maven.apache.org/download.cgi"
-	    echo " and try this script again.  If you find that version $MVNVERSION simply is no longer "
-	    echo " available, please specify a different version on the command line"
-	    echo ""
-	    exit 3
-	fi
+        # wget is installed
+        wget $URL2 2>/dev/null
+        if [ "$?" = "0" ] ; then
+            echo " Successful download of $FN2"
+        else
+            echo " The download of "
+            echo "   $URL2"
+            echo " failed.  Please download it yourself from https://maven.apache.org/download.cgi"
+            echo " and try this script again.  If you find that version $MVNVERSION simply is no longer "
+            echo " available, please specify a different version on the command line"
+            echo ""
+            exit 3
+        fi
     else
-	CURLPATH=`which curl`
-	if [ "$?" = "0" ] ; then
-	    # curl is installed
-	    curl -O $URL2
-	    if [ "$?" = "0" ] ; then
-		echo " Successful download of $FN2"
-	    else
-		echo " The download of "
-		echo "   $URL2"
-		echo " failed.  Please download it yourself from https://maven.apache.org/download.cgi"
-		echo " and try this script again."
-		echo ""
-		exit 2
-	    fi
-	else
-	    echo " curl and wget are not found.  Please install them or download Maven "
-	    echo " from from https://maven.apache.org/download.cgi"
-	    echo ""
-	    exit 1
-	fi
+        CURLPATH=`which curl`
+        if [ "$?" = "0" ] ; then
+            # curl is installed
+            curl -O $URL2
+            if [ "$?" = "0" ] ; then
+                echo " Successful download of $FN2"
+            else
+                echo " The download of "
+                echo "   $URL2"
+                echo " failed.  Please download it yourself from https://maven.apache.org/download.cgi"
+                echo " and try this script again."
+                echo ""
+                exit 2
+            fi
+        else
+            echo " curl and wget are not found.  Please install them or download Maven "
+            echo " from from https://maven.apache.org/download.cgi"
+            echo ""
+            exit 1
+        fi
     fi
 fi
 echo " Next this script will unpack the tar.gz file in this directory"
@@ -122,11 +122,11 @@ if [ "${JAVA_HOME}F" = "F" ] ; then
     JPP=$(readlink -f ${JAVACPATH} | sed "s:bin/javac::")
     #    echo $? for readlink sed
     if [ "$?" = "0" ] ; then
-	echo " You need to set JAVA_HOME.  The following command probably should work:"
-	echo "    export JAVA_HOME=${JPP}"
+        echo " You need to set JAVA_HOME.  The following command probably should work:"
+        echo "    export JAVA_HOME=${JPP}"
     else
-	echo " You need to set JAVA_HOME.  You will need to determine the directory that contains the"
-	echo " java that you are using.  You should start your search at $JAVAPATH"
+        echo " You need to set JAVA_HOME.  You will need to determine the directory that contains the"
+        echo " java that you are using.  You should start your search at $JAVAPATH"
     fi
     echo " Note: You do not need to set this in your .bashrc or .bash_profile file because"
     echo " this script will provide you with a source file that you can use instead,"
@@ -137,27 +137,27 @@ if [ "${JAVA_HOME}F" = "F" ] ; then
     exit 9
 else
     if [ -f ${JAVA_HOME}/bin/javac ] ; then
-	JAVACV2=`${JAVA_HOME}/bin/javac -version 2>&1 | grep "1[.]8[.]"`
-	if [ "$?" = "0" ] ; then
-	    if [ "${JAVACV}" = "$JAVACV2" ] ; then
-		echo " "
-	    else
-		echo " The javac in the JAVA_HOME bin directory does not seem to be the one in that path"
-		echo " Please correct this and invoke this script again"
-		echo ""
-		exit 13
-	    fi
-	else
-	    echo " The javac in the JAVA_HOME bin directory does not seem executable. Please"
-	    echo " invesigate and invoke this script again."
-	    echo ""
-	    exit 11
-	fi
+        JAVACV2=`${JAVA_HOME}/bin/javac -version 2>&1 | grep "1[.]8[.]"`
+        if [ "$?" = "0" ] ; then
+            if [ "${JAVACV}" = "$JAVACV2" ] ; then
+                echo " "
+            else
+                echo " The javac in the JAVA_HOME bin directory does not seem to be the one in that path"
+                echo " Please correct this and invoke this script again"
+                echo ""
+                exit 13
+            fi
+        else
+            echo " The javac in the JAVA_HOME bin directory does not seem executable. Please"
+            echo " investigate and invoke this script again."
+            echo ""
+            exit 11
+        fi
     else
-	echo " You do have JAVA_HOME  set, but it does not seem to be pointing at a valid JDK."
-	echo " Please correct this and invoke this script again."
-	echo ""
-	exit 10
+        echo " You do have JAVA_HOME  set, but it does not seem to be pointing at a valid JDK."
+        echo " Please correct this and invoke this script again."
+        echo ""
+        exit 10
     fi
 fi
 FNTEMPLATE=setenv.maven.template.source
